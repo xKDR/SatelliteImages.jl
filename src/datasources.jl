@@ -1,6 +1,4 @@
-
-
-struct NighttimeLights 
+struct VIIRSNTL 
 end
 
 struct MODIS

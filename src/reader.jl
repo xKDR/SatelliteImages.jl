@@ -43,21 +43,21 @@ end
 # Main readnl functions with multiple dispatch
 
 # Case 1: Using geometry
-function readraster(dataset::NighttimeLights, start_date::Date, end_date::Date, geom; rad_path = "/mnt/giant-disk/nighttimelights/monthly/rad/", cf_path = "/mnt/giant-disk/nighttimelights/monthly/cf/")
+function readraster(dataset::VIIRSNTL, start_date::Date, end_date::Date, geom; rad_path = "/mnt/giant-disk/nighttimelights/monthly/rad/", cf_path = "/mnt/giant-disk/nighttimelights/monthly/cf/")
     rad_datacube = make_datacube(rad_path, start_date, end_date, geom)
     cf_datacube = make_datacube(cf_path, start_date, end_date, geom)
     return rad_datacube, cf_datacube
 end
 
 # Case 2: Using xlims and ylims
-function readraster(dataset::NighttimeLights, start_date::Date, end_date::Date, xlims, ylims; rad_path = "/mnt/giant-disk/nighttimelights/monthly/rad/", cf_path = "/mnt/giant-disk/nighttimelights/monthly/cf/")
+function readraster(dataset::VIIRSNTL, start_date::Date, end_date::Date, xlims, ylims; rad_path = "/mnt/giant-disk/nighttimelights/monthly/rad/", cf_path = "/mnt/giant-disk/nighttimelights/monthly/cf/")
     rad_datacube = make_datacube(rad_path, start_date, end_date, xlims, ylims)
     cf_datacube = make_datacube(cf_path, start_date, end_date, xlims, ylims)
     return rad_datacube, cf_datacube
 end
 
 # Case 3: Without any spatial limits
-function readraster(dataset::NighttimeLights, start_date::Date, end_date::Date; rad_path = "/mnt/giant-disk/nighttimelights/monthly/rad/", cf_path = "/mnt/giant-disk/nighttimelights/monthly/cf/")
+function readraster(dataset::VIIRSNTL, start_date::Date, end_date::Date; rad_path = "/mnt/giant-disk/nighttimelights/monthly/rad/", cf_path = "/mnt/giant-disk/nighttimelights/monthly/cf/")
     rad_datacube = make_datacube(rad_path, start_date, end_date)
     cf_datacube = make_datacube(cf_path, start_date, end_date)
     return rad_datacube, cf_datacube
